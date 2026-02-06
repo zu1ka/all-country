@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+:root {
+    --bg-color: #fafafa;
+    --element-bg: #ffffff;
+    --text-color: #111517;
+    --input-color: #858585;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --border-color: #e0e0e0;
+}
+
+body.dark-mode {
+    --bg-color: #202c37;
+    --element-bg: #2b3945;
+    --text-color: #ffffff;
+    --input-color: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --border-color: #1a242d;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Header */
+header {
+    background-color: var(--element-bg);
+    padding: 1.5rem 5%;
+    box-shadow: 0 2px 4px var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+#dark-mode-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+
+
+/* Main */
+main {
+    padding: 0 1.5rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Search Container */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+#country-search {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 9px var(--shadow);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+#country-search::placeholder {
+    color: var(--input-color);
+}
+
+#country-search:focus {
+    outline: none;
+    box-shadow: 0 2px 12px var(--shadow);
+}
+
+#search-btn {
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 9px var(--shadow);
+    transition: all 0.2s ease;
+}
+
+#search-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+
+#region-filter {
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 9px var(--shadow);
+    font-size: .95rem;
+    cursor: pointer;
+    min-width: 200px;
+    transition: all 0.2s ease;
+}
+
+#region-filter:focus {
+    outline: none;
+    box-shadow: 0 2px 12px var(--shadow);
+}
+
+#region-filter option {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+}
+
+/* Country Container */
+.country-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
+    gap: 3rem;
+    padding: 0 0 4rem 0;
+}
+
+.country-container li {
+    list-style: none;
+    background-color: var(--element-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 9px var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.country-container li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px var(--shadow);
+}
+
+.country-container li.selected-list {
+    border: 3px solid #3b82f6;
+    transform: scale(1.02);
+}
+
+.country-container img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.country-container h2 {
+    font-size: 1.125rem;
+    font-weight: 800;
+    margin: 1.5rem 1.5rem 1rem 1.5rem;
+    text-align: left;
+}
+
+.country-container p {
+    font-size: 0.875rem;
+    margin: 0 1.5rem 0.5rem 1.5rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+
+
+.country-container li:only-child:hover {
+    transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 4%;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    #dark-mode-btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    main {
+        padding: 0 4%;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: st÷retch;
+        gap: 1.5rem;
+    }
+
+    #country-search {
+        max-width: 100%;
+    }
+
+    #search-btn,
+    #region-filter {
+        width: 100%;
+    }
+
+    .country-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .country-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
